@@ -1,0 +1,1 @@
+!function(e,t){if("function"==typeof define&&define.amd)define(["exports","./EventEmitter.js"],t);else if("undefined"!=typeof exports)t(exports,require("./EventEmitter.js"));else{var i={exports:{}};t(i.exports,e.EventEmitter),e.index=i.exports}}(this,function(e,t){"use strict";e.EventEmitter=t["default"],e["default"]=t["default"]});
