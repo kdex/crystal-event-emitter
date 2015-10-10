@@ -1,0 +1,34 @@
+{
+  "name": "event-emitter",
+  "version": "1.0.0",
+  "description": "A small, modern event emitter base class with no dependencies written in ES6+",
+  "main": "dist/common/index.js",
+  "format": "common",
+  "files": [
+    "dist/common"
+  ],
+  "registry": "npm",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kdex",
+  "license": "GPL-3.0",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^5.8.25",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.4.1",
+    "merge2": "^0.3.6",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "jspm": {
+    "format": "system",
+    "main": "dist/system/index.js",
+    "files": [
+      "dist/system"
+    ]
+  }
+}
