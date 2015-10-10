@@ -3,8 +3,7 @@
 # API reference
 This base class adds the following methods to the derived class' prototype:
 
-#### addEventListener
-<a name="addEventListener" href="event-emitter#addEventListener">#</a> EventEmitter.prototype.<b>addEventListener</b>(event, callback)
+#### EventEmitter.prototype.<b>addEventListener</b>(event, callback)
 
 Registers a new event listener for an event named `event`. If at some point in the future `event` is <a href="event-emitter#emit">emitted</a>, the function `callback` will be called.
 
@@ -12,8 +11,7 @@ If `callback` is already registered for the event name `event`, calling this met
 
 Returns a reference to the derived class. If `callback` is not a function, a TypeError is thrown.
 
-#### removeEventListener
-<a name="removeEventListener" href="event-emitter#removeEventListener">#</a> EventEmitter.prototype.<b>removeEventListener</b>(event, callback)
+#### EventEmitter.prototype.<b>removeEventListener</b>(event, callback)
 
 Removes the event listener `callback` for an event named `event` which prevents `callback` from being called in the future if an event with the name `event` is <a href="event-emitter#emit">emitted</a>.
 
@@ -21,18 +19,15 @@ If `callback` has not been registered for the event name `event`, calling this m
 
 Returns a reference to the derived class. If `callback` is not a function, a TypeError is thrown.
 
-#### on
-<a name="on" href="event-emitter#on">#</a> EventEmitter.prototype.<b>on</b>(event, callback)
+#### EventEmitter.prototype.<b>on</b>(event, callback)
 
 Synonymous to <a href="event-emitter#on">addEventListener</a>.
 
-#### off
-<a name="off" href="event-emitter#off">#</a> EventEmitter.prototype.<b>off</b>(event, callback)
+#### EventEmitter.prototype.<b>off</b>(event, callback)
 
 Synonymous to <a href="event-emitter#off">removeEventListener</a>.
 
-#### emit
-<a name="emit" href="event-emitter#emit">#</a> EventEmitter.prototype.<b>emit</b>(event[, ...args])
+#### EventEmitter.prototype.<b>emit</b>(event[, ...args])
 
 Emits a new event by the name of `event`. All currently registered event listeners for `event` will then be called using the optional argument list `args`.
 
