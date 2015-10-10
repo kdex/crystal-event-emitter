@@ -2,10 +2,11 @@
   "name": "event-emitter",
   "version": "1.0.0",
   "description": "A small, modern event emitter base class with no dependencies written in ES6+",
-  "main": "dist/common/index.js",
-  "format": "common",
+  "main": "src/index.js",
+  "format": "es6",
   "files": [
-    "dist/common"
+    "src/*",
+    "dist/*"
   ],
   "registry": "npm",
   "scripts": {
