@@ -21,7 +21,7 @@ Returns a reference to the derived class. If `callback` is not a function, a Typ
 
 #### EventEmitter.prototype.<b>on</b>(event, callback)
 
-Synonymous to <a href=#eventemitterprototypeaddeventlistenerevent-callback">addEventListener</a>.
+Synonymous to <a href="#eventemitterprototypeaddeventlistenerevent-callback">addEventListener</a>.
 
 #### EventEmitter.prototype.<b>off</b>(event, callback)
 
