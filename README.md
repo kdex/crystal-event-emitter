@@ -5,7 +5,7 @@ This base class adds the following methods to the derived class' prototype:
 
 #### EventEmitter.prototype.<b>addEventListener</b>(event, callback)
 
-Registers a new event listener for an event named `event`. If at some point in the future `event` is <a href="#emit">emitted</a>, the function `callback` will be called.
+Registers a new event listener for an event named `event`. If at some point in the future `event` is <a href="#eventemitterprototypeemitevent-args">emitted</a>, the function `callback` will be called.
 
 If `callback` is already registered for the event name `event`, calling this method has no effect.
 
@@ -13,7 +13,7 @@ Returns a reference to the derived class. If `callback` is not a function, a Typ
 
 #### EventEmitter.prototype.<b>removeEventListener</b>(event, callback)
 
-Removes the event listener `callback` for an event named `event` which prevents `callback` from being called in the future if an event with the name `event` is <a href="#emit">emitted</a>.
+Removes the event listener `callback` for an event named `event` which prevents `callback` from being called in the future if an event with the name `event` is <a href="#eventemitterprototypeemitevent-args">emitted</a>.
 
 If `callback` has not been registered for the event name `event`, calling this method has no effect.
 
@@ -21,11 +21,11 @@ Returns a reference to the derived class. If `callback` is not a function, a Typ
 
 #### EventEmitter.prototype.<b>on</b>(event, callback)
 
-Synonymous to <a href="#on">addEventListener</a>.
+Synonymous to <a href=#eventemitterprototypeaddeventlistenerevent-callback">addEventListener</a>.
 
 #### EventEmitter.prototype.<b>off</b>(event, callback)
 
-Synonymous to <a href="#off">removeEventListener</a>.
+Synonymous to <a href="#eventemitterprototyperemoveeventlistenerevent-callback">removeEventListener</a>.
 
 #### EventEmitter.prototype.<b>emit</b>(event[, ...args])
 
