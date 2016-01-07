@@ -1,5 +1,5 @@
 {
-  "name": "event-emitter",
+  "name": "crystal-event-emitter",
   "version": "1.0.0",
   "description": "A small, modern event emitter base class with no dependencies written in ES6+",
   "main": "src/index.js",
@@ -8,6 +8,15 @@
     "dist/**/*"
   ],
   "registry": "npm",
+  "keywords": [
+    "event",
+    "emitter",
+    "crystal",
+    "esnext",
+    "es6",
+    "es7",
+    "modern"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
