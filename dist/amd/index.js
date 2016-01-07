@@ -1,1 +1,0 @@
-define(["exports","./EventEmitter.js"],function(t,e){"use strict";t.EventEmitter=e["default"],t["default"]=e["default"]});

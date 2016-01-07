@@ -1,1 +1,0 @@
-System.register(["./EventEmitter.js"],function(t){"use strict";var e;return{setters:[function(t){e=t["default"]}],execute:function(){t("EventEmitter",e),t("default",e)}}});
