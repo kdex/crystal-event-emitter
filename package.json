@@ -18,7 +18,8 @@
     "modern"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "gulp",
+    "prepublish": "npm run compile"
   },
   "author": "kdex",
   "license": "GPL-3.0",
