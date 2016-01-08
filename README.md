@@ -5,7 +5,7 @@ This base class adds the following methods to the derived class' prototype:
 
 #### <b>constructor</b>(options)
 
-Constructs a new EventEmitter instance, usually called using `super(options)`. The `options` argument is an object with the following keys:
+Constructs a new EventEmitter instance, usually called using `super(options)`. The `options` argument is an optional object with the following keys:
 
 ##### inferListeners
 
