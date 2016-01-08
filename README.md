@@ -3,6 +3,14 @@
 # API reference
 This base class adds the following methods to the derived class' prototype:
 
+#### <b>constructor</b>(options)
+
+Constructs a new EventEmitter instance, usually called using `super(options)`. The `options` argument is an object with the following keys:
+
+##### inferListeners
+
+Boolean property that determines whether to automatically infer listener names and call them without explicitly registering them (default: `false`). For example, if `emitter.emit("closed")` is called, it will try to call `emitter.onClosed` even if you didn't explicitly add any event listeners to the `"closed"` event.
+
 #### EventEmitter.prototype.<b>addEventListener</b>(event, callback)
 
 Registers a new event listener for an event named `event`. If at some point in the future `event` is <a href="#eventemitterprototypeemitevent-args">emitted</a>, the function `callback` will be called.
