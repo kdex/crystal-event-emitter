@@ -1,5 +1,9 @@
 export class EventEmitter {
-	constructor() {
+	constructor(options = {}) {
+		if (!(options instanceof Object)) {
+			throw new TypeError();
+		}
+		this.options = options;
 		this.events = new Map();
 	}
 	addEventListener(event, callback) {
@@ -44,9 +48,18 @@ export class EventEmitter {
 		}
 	}
 	emit(event, ...args) {
+		let inferenceSuccessful = false;
+		/* Treat inferred listeners first */
+		if (this.options.inferListeners) {
+			let inferredListener = `on${event[0].toUpperCase()}${event.substr(1)}`;
+			if (this[inferredListener] instanceof Function) {
+				inferenceSuccessful = true;
+				this[inferredListener].apply(null, args);
+			}
+		}
 		let callbacks = this.events.get(event);
 		if (!callbacks || !callbacks.size) {
-			return false;
+			return inferenceSuccessful;
 		}
 		for (let callback of callbacks) {
 			callback.apply(null, args);
