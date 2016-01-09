@@ -54,7 +54,7 @@ export class EventEmitter {
 			let inferredListener = `on${event[0].toUpperCase()}${event.substr(1)}`;
 			if (this[inferredListener] instanceof Function) {
 				inferenceSuccessful = true;
-				this[inferredListener].apply(null, args);
+				this[inferredListener].apply(this, args);
 			}
 		}
 		let callbacks = this.events.get(event);
