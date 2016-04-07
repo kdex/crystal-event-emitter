@@ -1,6 +1,6 @@
 {
   "name": "crystal-event-emitter",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A small, modern event emitter base class with no dependencies written in ES6+",
   "main": "dist/index.js",
   "files": [
