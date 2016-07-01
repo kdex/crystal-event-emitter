@@ -48,6 +48,20 @@ export class EventEmitter {
 			return this;
 		}
 		else {
+			if (event === ANY) {
+				/* Remove all event listeners */
+				for (const [event, callback] of this[EXTENSIONS].events) {
+					this.removeEventListener(event, callback);
+				}
+			}
+			if (event && callback === ANY) {
+				/* Remove all event listeners for a given event */
+				for (const [evt, callback] of this[EXTENSIONS].events) {
+					if (event === evt) {
+						this.removeEventListener(evt, callback);
+					}
+				}
+			}
 			throw new TypeError();
 		}
 	}
