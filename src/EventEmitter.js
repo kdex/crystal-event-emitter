@@ -33,7 +33,7 @@ export class EventEmitter {
 		if (callback instanceof Function) {
 			/* Retrieve the listeners for this event type */
 			let callbacks = this[EXTENSIONS].events.get(event);
-			/* Add a new set if necessary */
+			/* If no callbacks are registered, ignore */
 			if (!callbacks) {
 				return this;
 			}
@@ -48,21 +48,32 @@ export class EventEmitter {
 			return this;
 		}
 		else {
-			if (event === ANY) {
-				/* Remove all event listeners */
-				for (const [event, callback] of this[EXTENSIONS].events) {
-					this.removeEventListener(event, callback);
-				}
-			}
-			if (event && callback === ANY) {
+			if (event && event !== ANY && !(callback instanceof Function)) {
 				/* Remove all event listeners for a given event */
-				for (const [evt, callback] of this[EXTENSIONS].events) {
-					if (event === evt) {
-						this.removeEventListener(evt, callback);
+				for (const [evt, callbacks] of this[EXTENSIONS].events) {
+					for (const callback of callbacks) {
+						if (event === evt) {
+							this.removeEventListener(evt, callback);
+						}
 					}
 				}
 			}
-			throw new TypeError();
+			else if (event === ANY) {
+				/* Remove all event listeners */
+				for (const [event, callbacks] of this[EXTENSIONS].events) {
+					for (const callback of callbacks) {
+						if (event !== ANY) {
+							this.removeEventListener(event, callback);
+						}
+						else {
+							this[EXTENSIONS].events.delete(event);
+						}
+					}
+				}
+			}
+			else {
+				throw new TypeError();
+			}
 		}
 	}
 	emit(event, ...args) {
