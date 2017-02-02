@@ -1,5 +1,5 @@
 # crystal-event-emitter
-`crystal-event-emitter` acts as a small ES6+ base class for event emitters. It's written in ES6 and distributed in virtually all module formats known to mankind. Just pick one.
+`crystal-event-emitter` acts as a small ES2015+ base class for event emitters. It's written in ES2015 and distributed in virtually all module formats known to mankind. Just pick one.
 # API reference
 This base class adds the following methods to the derived class' prototype:
 
