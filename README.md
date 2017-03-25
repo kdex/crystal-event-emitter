@@ -1,5 +1,9 @@
 # crystal-event-emitter
 `crystal-event-emitter` acts as a small ES2015+ base class for event emitters.
+# Examples
+
+If you want to see the library in action, feel free to check out the [tests](https://github.com/kdex/crystal-event-emitter/blob/master/test/index.js).
+
 # API reference
 This base class adds the following methods to the derived class' prototype:
 
@@ -9,11 +13,13 @@ Constructs a new EventEmitter instance, usually called using `super(options)`. T
 
 ##### inferListeners
 
-Boolean property that determines whether to automatically infer listener names and call them without explicitly registering them (default: `false`). For example, if `emitter.emit("closed")` is called, it will try to call `emitter.onClosed` even if you didn't explicitly add any event listeners to the `"closed"` event.
+Boolean property that determines whether to automatically infer listener names and call them without explicitly registering them (default: `false`). For example, if `emitter.emit("closed")` is called, it will try to call `emitter.onClosed` even if you didn't explicitly add any event listeners to the `"closed"` event. The `*` event name can be inferred by providing a method named `onAny`.
 
 #### EventEmitter.prototype.<b>addEventListener</b>(event, callback)
 
 Registers a new event listener for an event named `event`. If at some point in the future `event` is <a href="#eventemitterprototypeemitevent-args">emitted</a>, the function `callback` will be called.
+
+The special event called `*` can be used to create a listener that fires for any event name.
 
 If `callback` is already registered for the event name `event`, calling this method has no effect.
 
