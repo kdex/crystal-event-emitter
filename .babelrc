@@ -1,4 +1,15 @@
 {
-	"plugins": ["transform-es2015-modules-umd"],
-	"presets": ["es2015", "stage-0"]
+	"presets": [
+		["env", {
+			"targets": {
+				"node": "current"
+			}
+		}],
+		"stage-0"
+	],
+	"plugins": [
+		["module-resolver", {
+			"root": ["./src"]
+		}]
+	]
 }
