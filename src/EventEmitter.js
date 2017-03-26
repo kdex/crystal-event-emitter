@@ -26,7 +26,7 @@ export class EventEmitter {
 			return this;
 		}
 		else {
-			throw new TypeError();
+			throw new TypeError("Callback is not a function");
 		}
 	}
 	removeEventListeners(event) {
@@ -82,7 +82,7 @@ export class EventEmitter {
 	}
 	emit(event, ...args) {
 		if (event !== ANY) {
-			this.emit(ANY, ...args);
+			this.emit(ANY, event, ...args);
 		}
 		let inferenceSuccessful = false;
 		/* Handle inferred listeners first */
@@ -93,7 +93,7 @@ export class EventEmitter {
 			}
 			if (this[inferredListener] instanceof Function) {
 				inferenceSuccessful = true;
-				this[inferredListener].apply(this, args);
+				this[inferredListener](...args);
 			}
 		}
 		const callbacks = this[EXTENSIONS].events.get(event);
@@ -101,7 +101,7 @@ export class EventEmitter {
 			return inferenceSuccessful;
 		}
 		for (const callback of callbacks) {
-			callback.apply(null, args);
+			callback(...args);
 		}
 		return this;
 	}

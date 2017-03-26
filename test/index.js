@@ -1,9 +1,26 @@
 import test from "ava";
 import EventEmitter from "EventEmitter";
 test.beforeEach(t => {
+	/**
+	* A Cat is an example `EventEmitter`
+	*/
 	class Cat extends EventEmitter {}
+	/**
+	* A ListenerCat infers the listeners from the `EventEmitter`
+	*/
+	class ListenerCat extends EventEmitter {
+		/**
+		* Constructs a new `ListerCat`
+		*/
+		constructor() {
+			super({
+				inferListeners: true
+			});
+		}
+	}
 	t.context.data = {
-		cat: new Cat()
+		cat: new Cat(),
+		ListenerCat
 	};
 });
 test("emitting events generally works", t => {
@@ -156,46 +173,49 @@ test("the `*` event can be used to remove all event listeners", t => {
 	cat.removeEventListener("*");
 	cat.emit("meow");
 });
+test("the `onAny` method provides the event name, any other method won't", t => {
+	t.plan(3);
+	const { ListenerCat } = t.context.data;
+	class Cat extends ListenerCat {
+		onAny(event, ...args) {
+			t.is(event, "meow");
+			t.deepEqual(args, [1, 2, 3]);
+		}
+		onMeow(...args) {
+			t.deepEqual(args, [1, 2, 3]);
+		}
+	}
+	const cat = new Cat();
+	cat.emit("meow", 1, 2, 3);
+});
 test("inferred listeners work", t => {
 	t.plan(1);
-	class ListenerCat extends EventEmitter {
-		constructor() {
-			super({
-				inferListeners: true
-			})
-		}
+	const { ListenerCat } = t.context.data;
+	class Cat extends ListenerCat {
 		onMeow() {
 			t.pass();
 		}
 	}
-	const cat = new ListenerCat();
+	const cat = new Cat();
 	cat.emit("meow");
 });
 test("inferred listeners can't be turned off", t => {
 	t.plan(2);
-	class ListenerCat extends EventEmitter {
-		constructor() {
-			super({
-				inferListeners: true
-			})
-		}
+	const { ListenerCat } = t.context.data;
+	class Cat extends ListenerCat {
 		onMeow() {
 			t.pass();
 		}
 	}
-	const cat = new ListenerCat();
+	const cat = new Cat();
 	cat.emit("meow");
 	cat.removeEventListeners("meow");
 	cat.emit("meow");
 });
 test("inferred listeners should be covered by `*`", t => {
 	t.plan(2);
-	class ListenerCat extends EventEmitter {
-		constructor() {
-			super({
-				inferListeners: true
-			})
-		}
+	const { ListenerCat } = t.context.data;
+	class Cat extends ListenerCat {
 		onMeow() {
 			t.pass();
 		}
@@ -203,6 +223,6 @@ test("inferred listeners should be covered by `*`", t => {
 			t.pass();
 		}
 	}
-	const cat = new ListenerCat();
+	const cat = new Cat();
 	cat.emit("meow");
 });
