@@ -29,6 +29,17 @@ export class EventEmitter {
 			throw new TypeError("Callback is not a function");
 		}
 	}
+	once(event, callback) {
+		if (callback instanceof Function) {
+			callback[EXTENSIONS] = {
+				once: true
+			};
+			this.addEventListener(event, callback);
+		}
+		else {
+			throw new TypeError("Callback is not a function");
+		}
+	}
 	removeEventListeners(event) {
 		if (event) {
 			/* Remove all event listeners for a given event */
@@ -102,6 +113,9 @@ export class EventEmitter {
 		}
 		for (const callback of callbacks) {
 			callback(...args);
+			if (callback[EXTENSIONS] && callback[EXTENSIONS].once) {
+				this.removeEventListener(event, callback);
+			}
 		}
 		return this;
 	}

@@ -199,7 +199,33 @@ test("inferred listeners work", t => {
 	const cat = new Cat();
 	cat.emit("meow");
 });
-test("inferred listeners can't be turned off", t => {
+test("`once` generally works", t => {
+	t.plan(1);
+	const { cat } = t.context.data;
+	const purr = () => t.pass();
+	cat.once("meow", purr);
+	cat.emit("meow");
+	cat.emit("meow");
+});
+test("`once` works with `*`", t => {
+	t.plan(1);
+	const { cat } = t.context.data;
+	const purr = () => t.pass();
+	cat.once("*", purr);
+	cat.emit("meow");
+	cat.emit("meow");
+});
+test("`once` will remove the event listener even if the callback is registered via `on`", t => {
+	t.plan(1);
+	const { cat } = t.context.data;
+	const purr = () => t.pass();
+	cat.on("meow", purr);
+	cat.once("*", purr);
+	cat.on("meow", purr);
+	cat.emit("meow");
+	cat.emit("meow");
+});
+test("inferred listeners can't be removed", t => {
 	t.plan(2);
 	const { ListenerCat } = t.context.data;
 	class Cat extends ListenerCat {
@@ -212,7 +238,7 @@ test("inferred listeners can't be turned off", t => {
 	cat.removeEventListeners("meow");
 	cat.emit("meow");
 });
-test("inferred listeners should be covered by `*`", t => {
+test("inferred listeners are covered by `*`", t => {
 	t.plan(2);
 	const { ListenerCat } = t.context.data;
 	class Cat extends ListenerCat {
