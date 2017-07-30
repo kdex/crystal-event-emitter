@@ -1,7 +1,7 @@
 {
   "name": "crystal-event-emitter",
   "version": "2.1.1",
-  "description": "A small, modern event emitter base class with no dependencies written in ES6+",
+  "description": "A small, modern event emitter base class with no dependencies written in ES2015+",
   "main": "dist/index.js",
   "files": [
     "src/*",
@@ -19,23 +19,23 @@
   ],
   "scripts": {
     "compile": "gulp",
-    "prepublish": "npm run compile"
+    "test": "ava",
+    "prepublishOnly": "npm test; npm run compile"
   },
   "author": "kdex",
   "license": "GPL-3.0",
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.18.2",
-    "babel-eslint": "^7.2.1",
-    "babel-plugin-module-resolver": "^2.5.0",
-    "babel-preset-env": "^1.2.2",
-    "babel-preset-stage-0": "^6.5.0",
-    "eslint": "^3.18.0",
-    "eslint-plugin-filenames": "^1.1.0",
+    "ava": "^0.21.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.3.0",
+    "eslint-plugin-filenames": "^1.2.0",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-ava": "^0.16.0",
     "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1"
+    "gulp-eslint": "^4.0.0"
   },
   "ava": {
     "require": "babel-register",
