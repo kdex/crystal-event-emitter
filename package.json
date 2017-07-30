@@ -4,7 +4,6 @@
   "description": "A small, modern event emitter base class with no dependencies written in ES2015+",
   "main": "dist/index.js",
   "files": [
-    "src/*",
     "dist/*"
   ],
   "registry": "npm",
