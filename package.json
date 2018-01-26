@@ -25,16 +25,16 @@
   "license": "GPL-3.0",
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.21.0",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-module-resolver": "^2.7.1",
-    "babel-preset-env": "^1.6.0",
+    "ava": "^0.24.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-module-resolver": "^3.0.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
-    "eslint": "^4.3.0",
+    "eslint": "^4.16.0",
     "eslint-plugin-filenames": "^1.2.0",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^4.0.0"
+    "gulp-babel": "^7.0.0",
+    "gulp-eslint": "^4.0.2"
   },
   "ava": {
     "require": "babel-register",
