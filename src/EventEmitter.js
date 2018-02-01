@@ -15,6 +15,7 @@ const EXTENSIONS = Symbol("[[Extensions]]");
 * The constructor function that will be used in an `instanceof` type check
 * @param {string} [details = ""]
 * Details to append in the error message.
+* @return {boolean} `true` if the assertion was valid.
 * @throws {TypeError} when `unknown` is not an instance of `constructor`.
 */
 const assertInstance = (unknown, constructor, details = "") => {
@@ -37,8 +38,6 @@ export class EventEmitter {
 	* If `true`, this will automatically try to call a method `onX` if the event `x` is emitted. If the event `*` is emitted, this will try to call `onAny`.
 	*
 	* If `false`, you will have to bind every listener manually.
-	* @return {EventEmitter}
-	* A new instance
 	* @throws {TypeError} when `options` is not an instance of `Object`
 	*/
 	constructor(options = {}) {
@@ -111,7 +110,7 @@ export class EventEmitter {
 		callback[EXTENSIONS] = {
 			once: true
 		};
-		this.addEventListener(event, callback);
+		return this.addEventListener(event, callback);
 	}
 	/**
 	* Removes all event listeners for a given `event`.
@@ -148,6 +147,7 @@ export class EventEmitter {
 				}
 			}
 		}
+		return this;
 	}
 	/**
 	* Removes a single even listener identified by `event` and a `callback`.
