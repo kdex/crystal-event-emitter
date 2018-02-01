@@ -1,4 +1,6 @@
 # crystal-event-emitter
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/kdex/crystal-event-emitter.svg)](https://greenkeeper.io/)
 `crystal-event-emitter` acts as a small ES2015+ base class for event emitters.
 # Examples
 
