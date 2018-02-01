@@ -1,4 +1,5 @@
 # crystal-event-emitter
+
 `crystal-event-emitter` acts as a small ES2015+ base class for event emitters.
 # Examples
 
