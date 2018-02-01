@@ -71,7 +71,7 @@ test("emitting unregistered events works", t => {
 test("events can have meta information", t => {
 	t.plan(1);
 	const { cat } = t.context.data;
-	cat.on("meow", (...args) => {
+	cat.addEventListener("meow", (...args) => {
 		t.deepEqual(args, [1, 2, 3]);
 	});
 	cat.emit("meow", 1, 2, 3);
@@ -118,7 +118,7 @@ test("removeEventListener throws if it's missing a callback", t => {
 	t.plan(2);
 	const { cat } = t.context.data;
 	const removeMe = () => {
-		t.throws(() => cat.removeEventListener("meow"));
+		t.throws(() => cat.off("meow"));
 	};
 	cat.on("meow", removeMe);
 	cat.emit("meow", 1, 2, 3);
@@ -288,4 +288,20 @@ test("inferred listeners are covered by `*`", t => {
 	}
 	const cat = new Cat();
 	cat.emit("meow");
+});
+test("emitting `*` only causes `onAny` or `*` to be invoked", t => {
+	t.plan(2);
+	const { ListenerCat } = t.context.data;
+	class Cat extends ListenerCat {
+		onMeow() {
+			t.fail();
+		}
+		onAny() {
+			t.pass();
+		}
+	}
+	const cat = new Cat();
+	cat.on("food", () => t.fail());
+	cat.on("*", () => t.pass());
+	cat.emit("*");
 });
