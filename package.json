@@ -22,6 +22,7 @@
     "check-commit": "npm test && npm run lint",
     "compile": "babel src -d dist",
     "coverage": "nyc npm test",
+    "doc": "esdoc",
     "lint": "eslint src",
     "test": "ava",
     "prepublishOnly": "npm run check-commit"
