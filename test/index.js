@@ -23,6 +23,15 @@ test.beforeEach(t => {
 		ListenerCat
 	};
 });
+test("constructing event emitter without object works", t => {
+	t.plan(1);
+	new EventEmitter();
+	t.pass();
+});
+test("constructing event emitter with non-object throws", t => {
+	t.plan(1);
+	t.throws(() => new EventEmitter(false));
+});
 test("emitting events generally works", t => {
 	t.plan(1);
 	const { cat } = t.context.data;
@@ -30,6 +39,34 @@ test("emitting events generally works", t => {
 		t.pass();
 	});
 	cat.emit("meow");
+});
+test("adding non-function listeners throws", t => {
+	t.plan(1);
+	const { cat } = t.context.data;
+	t.throws(() => cat.on("meow", Math.PI));
+});
+test("removing non-existent events doesn't throw", t => {
+	t.plan(4);
+	const { cat } = t.context.data;
+	const eat = () => {};
+	const drink = () => {};
+	/* Case 1: No callbacks registered */
+	t.notThrows(() => cat.removeEventListener("hungry", eat));
+	/* Case 2: Callbacks registered, but unable to remove */
+	cat.on("hungry", eat);
+	t.notThrows(() => cat.removeEventListener("hungry", drink));
+	cat.on("hungry", drink);
+	/* Case 3.a: Callbacks registered, and able to remove; event stays */
+	t.notThrows(() => cat.removeEventListener("hungry", eat));
+	/* Case 3.b: Callbacks registered, and able to remove; event disappears */
+	t.notThrows(() => cat.removeEventListener("hungry", drink));
+});
+test("emitting unregistered events works", t => {
+	t.plan(3);
+	const { cat } = t.context.data;
+	t.notThrows(() => cat.emit("meow"));
+	t.notThrows(() => cat.emit("purr"));
+	t.notThrows(() => cat.emit("eat"));
 });
 test("events can have meta information", t => {
 	t.plan(1);
