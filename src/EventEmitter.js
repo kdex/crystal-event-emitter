@@ -1,6 +1,6 @@
 /**
 * A wildcard event; this was previously implemented as a symbol for consumers to import.
-* Since it is unclear weather strings are fine, we'll keep this around for now
+* Since it is unclear whether strings are fine, we'll keep this around for now.
 */
 export const ANY = "*";
 /**
