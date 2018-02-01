@@ -1,5 +1,5 @@
 import test from "ava";
-import EventEmitter from "EventEmitter";
+import EventEmitter from "../src/index";
 test.beforeEach(t => {
 	/**
 	* A Cat is an example `EventEmitter`
