@@ -1,5 +1,9 @@
 # crystal-event-emitter
 
+[![Travis](https://img.shields.io/travis/kdex/crystal-event-emitter.svg)](https://travis-ci.org/kdex/crystal-event-emitter)
+[![codecov](https://img.shields.io/codecov/c/github/kdex/crystal-event-emitter.svg)](https://codecov.io/gh/kdex/crystal-event-emitter)
+[![dependencies Status](https://img.shields.io/david/kdex/crystal-event-emitter.svg)](https://david-dm.org/kdex/crystal-event-emitter)
+
 `crystal-event-emitter` acts as a small ES2015+ base class for event emitters.
 # Examples
 
