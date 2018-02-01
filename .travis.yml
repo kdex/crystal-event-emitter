@@ -15,3 +15,12 @@ after_script:
 - npm run coverage
 # Update coverage report
 - $(npm bin)/nyc report --reporter=text-lcov > coverage.lcov && $(npm bin)/codecov
+# Generate documentation
+- npm run doc
+deploy:
+ provider: pages
+ skip-cleanup: true
+ github-token: $GITHUB_TOKEN
+ keep-history: true
+ local-dir: doc
+ commiter-from-gh: true
