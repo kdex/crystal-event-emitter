@@ -47,7 +47,7 @@ export class EventEmitter {
 		* @type {object}
 		* @property {object} this[EXTENSIONS].options
 		* See {@link constructor}.
-		* @property {Map<string|symbol, function[]>} this[EXTENSIONS].events
+		* @property {Map<string|symbol, Set<function>>} this[EXTENSIONS].events
 		* The internal storage for event listeners
 		*/
 		this[EXTENSIONS] = {
