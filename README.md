@@ -6,10 +6,10 @@
 [![documentation](https://kdex.github.io/crystal-event-emitter/badge.svg)](https://kdex.github.io/crystal-event-emitter)
 
 A small, modern base class for event emitters — no dependencies.
-# Documentation
+## Documentation
 You can find a documentation [here](https://kdex.github.io/crystal-event-emitter).
-# Examples
-## Inferred listeners
+## Examples
+### Inferred listeners
 ```js
 import EventEmitter from "crystal-event-emitter";
 class Cat extends EventEmitter {
@@ -25,7 +25,7 @@ class Cat extends EventEmitter {
 const cat = new Cat();
 cat.emit("feed"); // "More food, please!"
 ```
-## Manual listeners
+### Manual listeners
 ```js
 import EventEmitter from "crystal-event-emitter";
 class Cat extends EventEmitter {
