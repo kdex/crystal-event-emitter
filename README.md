@@ -1,8 +1,8 @@
 # crystal-event-emitter
 
-[![travis](https://img.shields.io/travis/kdex/crystal-event-emitter.svg)](https://travis-ci.org/kdex/crystal-event-emitter)
-[![codecov](https://img.shields.io/codecov/c/github/kdex/crystal-event-emitter.svg)](https://codecov.io/gh/kdex/crystal-event-emitter)
-[![dependencies](https://img.shields.io/david/kdex/crystal-event-emitter.svg)](https://david-dm.org/kdex/crystal-event-emitter)
+[![travis](https://travis-ci.org/kdex/crystal-event-emitter.svg?branch=master)](https://travis-ci.org/kdex/crystal-event-emitter)
+[![codecov](https://codecov.io/gh/kdex/crystal-event-emitter/branch/master/graph/badge.svg)](https://codecov.io/gh/kdex/crystal-event-emitter)
+[![dependencies](https://david-dm.org/kdex/crystal-event-emitter/status.svg)](https://david-dm.org/kdex/crystal-event-emitter)
 [![documentation](https://kdex.github.io/crystal-event-emitter/badge.svg)](https://kdex.github.io/crystal-event-emitter)
 
 A small, modern base class for event emitters — no dependencies.
