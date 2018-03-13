@@ -1,11 +1,11 @@
 {
 	"presets": [
-		["env", {
+		["@babel/preset-env", {
 			"targets": {
 				"node": "current"
 			}
 		}],
-		"stage-0"
+		"@babel/preset-stage-0"
 	],
 	"plugins": [
 		["module-resolver", {
