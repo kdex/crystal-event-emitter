@@ -4,8 +4,7 @@
 			"targets": {
 				"node": "current"
 			}
-		}],
-		"@babel/preset-stage-0"
+		}]
 	],
 	"plugins": [
 		["module-resolver", {
