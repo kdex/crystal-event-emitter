@@ -41,7 +41,7 @@
     "codecov": "^3.0.0",
     "esdoc": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.15.1",
     "eslint-plugin-filenames": "^1.2.0",
     "greenkeeper-lockfile": "^1.15.1",
     "nyc": "^12.0.1"
